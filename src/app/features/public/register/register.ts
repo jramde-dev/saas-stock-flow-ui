@@ -52,11 +52,10 @@ export class Register {
 
    protected onRegister() {
       this.authService.register({ body: this.registerRequest }).subscribe({
-         next: (response) => {
+         next: () => {
             this.messageService.add({
                severity: 'success',
                summary: 'Success',
-               life: 5000,
                detail: 'Account created successfully. Please check your e-mail for verification.'
             });
             this.router.navigate(['']);
