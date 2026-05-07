@@ -1,33 +1,55 @@
 <p-toast position="top-right" />
 @if (tenants.length > 0) {
-   <div>
-      <h1 class="flex justify-content-center">Tenants List</h1>
-      <div class="card">
-         <p-table [value]="tenants" [tableStyle]="{ 'min-width': '50rem' }">
+  <div class="mb-4 p-4 pt-0">
+    <h1 class="text-5xl font-bold mb-3 flex justify-content-center">Tenants</h1>
+    <p-panel>
+      <div>
+        <div class="card">
+          <p-table [value]="tenants" [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template #header>
-               <tr>
-                  <th>Company Name</th>
-                  <th>Company Code</th>
-                  <th>Administrator</th>
-                  <th>Admin e-mail</th>
-                  <th>Admin Username</th>
-                  <th><i class="pi pi-cog" style="font-size: 1.5rem"></i></th>
-               </tr>
+              <tr>
+                <th>Company Name</th>
+                <th>Company Code</th>
+                <th>Administrator</th>
+                <th>Admin e-mail</th>
+                <th>Admin Username</th>
+                <th>Status</th>
+                <th><i class="pi pi-cog" style="font-size: 1.5rem"></i></th>
+              </tr>
             </ng-template>
             <ng-template #body let-tenant>
-               <tr>
-                  <td>{{ tenant.companyName }}</td>
-                  <td>{{ tenant.companyCode }}</td>
-                  <td>{{ tenant.adminFirstName }} {{ tenant.adminLastName }}</td>
-                  <td>{{ tenant.adminEmail }}</td>
-                  <td>{{ tenant.adminUsername }}</td>
-               </tr>
+              <tr>
+                <td>{{ tenant.companyName }}</td>
+                <td>{{ tenant.companyCode }}</td>
+                <td>{{ tenant.adminFirstName }} {{ tenant.adminLastName }}</td>
+                <td>{{ tenant.adminEmail }}</td>
+                <td>{{ tenant.adminUsername }}</td>
+                <td>{{ tenant.status }}</td>
+                <td>
+                  <div class="flex justify-content-center gap-2">
+                    @if (tenant.status === 'PENDING') {
+                      <i (click)="approveTenant(tenant.tenantId)" class="cursor-pointer pi pi-check" style="color: green" pTooltip="Approve"
+                         tooltipPosition="top"></i>
+                    } @else if (tenant.status === 'ACTIVE') {
+                      <i (click)="deactivateTenant(tenant.tenantId)" class="cursor-pointer pi pi-circle-on" style="color: darkgreen" pTooltip="Deactivate"
+                         tooltipPosition="top"></i>
+                      <i (click)="suspendTenant(tenant.tenantId)" class="cursor-pointer pi pi-times" style="color: red" pTooltip="Suspend"
+                         tooltipPosition="top"></i>
+                    } @else if (tenant.status === 'INACTIVE' || tenant.status === 'SUSPENDED') {
+                      <i (click)="activateTenant(tenant.tenantId)" class="cursor-pointer pi pi-circle-off" style="color: dodgerblue" pTooltip="Activate"
+                         tooltipPosition="top"></i>
+                    }
+                  </div>
+                </td>
+              </tr>
             </ng-template>
-         </p-table>
+          </p-table>
+        </div>
       </div>
-   </div>
+    </p-panel>
+  </div>
 } @else {
-   <div>
-      <p class="flex justify-content-center">No tenant found</p>
-   </div>
+  <div>
+    <p class="flex justify-content-center">No tenant found</p>
+  </div>
 }
