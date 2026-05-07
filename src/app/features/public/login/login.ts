@@ -46,7 +46,7 @@ export class Login {
    }
 
    protected onRegister() {
-      console.log('Register');
+      this.router.navigate(['register']);
    }
 
    protected hasError(fieldName: string): boolean {

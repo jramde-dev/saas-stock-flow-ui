@@ -1,1 +1,105 @@
-<p>register works!</p>
+<p-toast position="top-right" />
+
+<div class="flex justify-content-center align-items-center">
+   <div class="flex flex-column">
+      <div class="flex justify-content-center align-items-center">
+         <h3>Create account</h3>
+      </div>
+      <div class="flex gap-3">
+         <div class="flex flex-column gap-2 align-items-center">
+            <h3>Company information</h3>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText id="companyName" name="companyName"
+                         [(ngModel)]="registerRequest.companyName" autocomplete="off" />
+                  <label for="companyName">Company name</label>
+               </p-floatlabel>
+               @if (hasError('companyName')) {
+                  <small class="text-red-500">{{ getErrorMsg('companyName') }}</small>
+               }
+            </div>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText id="companyCode" name="companyCode"
+                         [(ngModel)]="registerRequest.companyCode" autocomplete="off" />
+                  <label for="companyCode">Company code</label>
+               </p-floatlabel>
+               @if (hasError('companyCode')) {
+                  <small class="text-red-500">{{ getErrorMsg('companyCode') }}</small>
+               }
+            </div>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText id="companyEmail" name="companyEmail"
+                         [(ngModel)]="registerRequest.companyEmail" autocomplete="off" />
+                  <label for="companyEmail">Company e-mail</label>
+               </p-floatlabel>
+               @if (hasError('companyEmail')) {
+                  <small class="text-red-500">{{ getErrorMsg('companyEmail') }}</small>
+               }
+            </div>
+         </div>
+         <p-divider layout="vertical" />
+
+         <!-- Company administrator information -->
+         <div class="flex flex-column gap-2 align-items-center">
+            <h3>Administrator information</h3>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText id="adminFirstName" name="adminFirstName"
+                         [(ngModel)]="registerRequest.adminFirstName" autocomplete="off" />
+                  <label for="adminFirstName">First name</label>
+               </p-floatlabel>
+               @if (hasError('adminFirstName')) {
+                  <small class="text-red-500">{{ getErrorMsg('adminFirstName') }}</small>
+               }
+            </div>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText id="adminLastName" name="adminLastName"
+                         [(ngModel)]="registerRequest.adminLastName" autocomplete="off" />
+                  <label for="adminLastName">Last name</label>
+               </p-floatlabel>
+               @if (hasError('adminLastName')) {
+                  <small class="text-red-500">{{ getErrorMsg('adminLastName') }}</small>
+               }
+            </div>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText id="adminEmail" name="adminEmail"
+                         [(ngModel)]="registerRequest.adminEmail" autocomplete="off" />
+                  <label for="adminEmail">E-mail Address</label>
+               </p-floatlabel>
+               @if (hasError('adminEmail')) {
+                  <small class="text-red-500">{{ getErrorMsg('adminEmail') }}</small>
+               }
+            </div>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText id="adminUsername" name="adminUsername"
+                         [(ngModel)]="registerRequest.adminUsername" autocomplete="off" />
+                  <label for="adminUsername">Username</label>
+               </p-floatlabel>
+               @if (hasError('adminUsername')) {
+                  <small class="text-red-500">{{ getErrorMsg('adminUsername') }}</small>
+               }
+            </div>
+            <div>
+               <p-floatlabel variant="on">
+                  <input pInputText type="password" id="adminPassword" name="adminPassword"
+                         [(ngModel)]="registerRequest.adminPassword" autocomplete="off" />
+                  <label for="adminPassword">Password</label>
+               </p-floatlabel>
+               @if (hasError('adminPassword')) {
+                  <small class="text-red-500">{{ getErrorMsg('adminPassword') }}</small>
+               }
+            </div>
+         </div>
+      </div>
+      <div class="flex justify-content-center align-items-center gap-2">
+         <p-button label="Register" type="submit" (click)="onRegister()" />
+         <h5>Or</h5>
+         <p-button label="Login" variant="text" (click)="onLogin()" />
+      </div>
+   </div>
+</div>
