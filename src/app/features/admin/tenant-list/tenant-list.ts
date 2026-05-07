@@ -4,11 +4,13 @@ import { JrTenantResponse } from '../../../api-services/models/jr-tenant-respons
 import { JrPageResponseJrTenantResponse } from '../../../api-services/models/jr-page-response-jr-tenant-response';
 import { TenantService } from '../../../api-services/services/tenant.service';
 import { MessageService } from 'primeng/api';
+import { Toast } from 'primeng/toast';
 
 @Component({
    selector: 'app-tenant-list',
    imports: [
-      TableModule
+      TableModule,
+      Toast
    ],
    providers: [MessageService],
    templateUrl: './tenant-list.html',
@@ -28,7 +30,7 @@ export class TenantList implements OnInit {
    private loadTenants() {
       this.tenantService.findAll({ page: 0, size: 10 }).subscribe({
          next: (response) => {
-            this.tenantPage = response;
+            // this.tenantPage = response;
             this.tenants = response.content || [];
          },
          error: (error) => {
