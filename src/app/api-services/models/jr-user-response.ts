@@ -5,6 +5,7 @@ export interface JrUserResponse {
   companyName?: string;
   email?: string;
   firstName?: string;
+  id?: string;
   lastName?: string;
   password?: string;
   role?: 'ROLE_PLATFORM_ADMIN' | 'ROLE_COMPANY_ADMIN' | 'ROLE_ADMINISTRATOR' | 'ROLE_SALES_OPERATOR' | 'ROLE_USER';

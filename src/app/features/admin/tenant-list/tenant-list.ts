@@ -33,7 +33,7 @@ export class TenantList implements OnInit {
   }
 
   private loadTenants() {
-    this.tenantService.findAll({ page: 0, size: 10 }).subscribe({
+    this.tenantService.findAll4({ page: 0, size: 10 }).subscribe({
       next: (response) => {
         this.tenants = response.content || [];
         this.changeDetectionRef.detectChanges();

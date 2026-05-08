@@ -1,14 +1,14 @@
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
-import { Panel } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-import { Toast } from 'primeng/toast';
-import { Tooltip } from 'primeng/tooltip';
-import { MessageService } from 'primeng/api';
-import { CategoryService } from '../../../api-services/services';
-import { JrPageResponseJrCategoryResponse } from '../../../api-services/models/jr-page-response-jr-category-response';
-import { JrCategoryResponse } from '../../../api-services/models/jr-category-response';
-import { Button } from 'primeng/button';
-import { Router } from '@angular/router';
+import {ChangeDetectorRef, Component, inject} from '@angular/core';
+import {Panel} from 'primeng/panel';
+import {TableModule} from 'primeng/table';
+import {Toast} from 'primeng/toast';
+import {Tooltip} from 'primeng/tooltip';
+import {MessageService} from 'primeng/api';
+import {CategoryService} from '../../../api-services/services';
+import {JrPageResponseJrCategoryResponse} from '../../../api-services/models/jr-page-response-jr-category-response';
+import {JrCategoryResponse} from '../../../api-services/models/jr-category-response';
+import {Button} from 'primeng/button';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-category-list',
@@ -37,7 +37,7 @@ export class CategoryList {
   }
 
   private loadCategories() {
-    this.categoryService.findAll({ page: 0, size: 10 }).subscribe({
+    this.categoryService.findAll3({ page: 0, size: 10 }).subscribe({
       next: (response) => {
         this.categories = response.content || [];
         this.changeDetectionRef.detectChanges();

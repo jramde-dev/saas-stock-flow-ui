@@ -1,15 +1,15 @@
-import { Component, inject } from '@angular/core';
-import { AuthenticationService } from '../../../api-services/services/authentication.service';
-import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
-import { JrErrorResponse, JrValidationError } from '../../../models/jr-error-response';
-import { Button } from 'primeng/button';
-import { FloatLabel } from 'primeng/floatlabel';
-import { FormsModule } from '@angular/forms';
-import { InputText } from 'primeng/inputtext';
-import { Toast } from 'primeng/toast';
-import { JrRegisterTenantRequest } from '../../../api-services/models/jr-register-tenant-request';
-import { Divider } from 'primeng/divider';
+import {Component, inject} from '@angular/core';
+import {AuthenticationService} from '../../../api-services/services/authentication.service';
+import {MessageService} from 'primeng/api';
+import {Router} from '@angular/router';
+import {JrErrorResponse, JrValidationError} from '../../../shared/models/jr-error-response';
+import {Button} from 'primeng/button';
+import {FloatLabel} from 'primeng/floatlabel';
+import {FormsModule} from '@angular/forms';
+import {InputText} from 'primeng/inputtext';
+import {Toast} from 'primeng/toast';
+import {JrRegisterTenantRequest} from '../../../api-services/models/jr-register-tenant-request';
+import {Divider} from 'primeng/divider';
 
 @Component({
    selector: 'app-register',

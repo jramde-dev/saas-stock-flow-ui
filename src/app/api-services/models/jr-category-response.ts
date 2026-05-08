@@ -3,6 +3,7 @@
 
 export interface JrCategoryResponse {
   description?: string;
+  id?: string;
   name?: string;
   totalProducts?: number;
 }

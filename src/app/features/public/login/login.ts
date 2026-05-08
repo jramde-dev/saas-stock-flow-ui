@@ -1,15 +1,15 @@
-import { Component, inject } from '@angular/core';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { JrLoginRequest } from '../../../api-services/models/jr-login-request';
-import { FormsModule } from '@angular/forms';
-import { AuthenticationService } from '../../../api-services/services/authentication.service';
-import { JrErrorResponse, JrValidationError } from '../../../models/jr-error-response';
-import { MessageService } from 'primeng/api';
-import { Toast } from 'primeng/toast';
-import { TokenService } from '../../../core/services/token-service';
-import { Router } from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {FloatLabelModule} from 'primeng/floatlabel';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {JrLoginRequest} from '../../../api-services/models/jr-login-request';
+import {FormsModule} from '@angular/forms';
+import {AuthenticationService} from '../../../api-services/services/authentication.service';
+import {JrErrorResponse, JrValidationError} from '../../../shared/models/jr-error-response';
+import {MessageService} from 'primeng/api';
+import {Toast} from 'primeng/toast';
+import {TokenService} from '../../../core/services/token-service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',

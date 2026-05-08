@@ -4,6 +4,7 @@
 export interface JrStockMvmtResponse {
   comment?: string;
   dateMvmt?: string;
+  id?: string;
   quantity?: number;
   typeMvmt?: 'IN' | 'OUT';
 }

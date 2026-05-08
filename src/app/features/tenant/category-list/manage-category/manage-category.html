@@ -1,1 +1,29 @@
-<p>manage-category works!</p>
+<div class="flex justify-content-center align-items-center">
+  <div class="flex flex-column gap-2">
+    <h3>Manage Category</h3>
+    <div>
+      <p-floatlabel variant="on">
+        <input pInputText id="name" name="name"
+               [(ngModel)]="categoryRequest.name" autocomplete="off" />
+        <label for="name">Category Name</label>
+      </p-floatlabel>
+      @if (hasError('name')) {
+        <small class="text-red-500">{{ getErrorMsg('name') }}</small>
+      }
+    </div>
+    <div>
+      <p-floatlabel variant="on">
+        <input pInputText id="description" name="description"
+               [(ngModel)]="categoryRequest.description" autocomplete="off" />
+        <label for="description">Description</label>
+      </p-floatlabel>
+      @if (hasError('description')) {
+        <small class="text-red-500">{{ getErrorMsg('description') }}</small>
+      }
+    </div>
+    <div class=" flex align-items-center justify-content-between">
+      <p-button label="Add" icon="pi pi-check" (click)="onAdd()"/>
+      <p-button label="Cancel" icon="pi pi-times" severity="danger" (click)="onCancel()"/>
+    </div>
+  </div>
+</div>

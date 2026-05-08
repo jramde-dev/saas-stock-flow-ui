@@ -1096,6 +1096,9 @@
       "JrUserResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "username": {
             "type": "string"
           },
@@ -1252,6 +1255,9 @@
       "JrStockMvmtResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "typeMvmt": {
             "type": "string",
             "enum": [
@@ -1314,6 +1320,9 @@
       "JrProductResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -1342,6 +1351,9 @@
       "JrCategoryResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },

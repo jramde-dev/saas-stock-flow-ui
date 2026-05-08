@@ -6,6 +6,7 @@ export interface JrProductResponse {
   availableQuantity?: number;
   categoryName?: string;
   description?: string;
+  id?: string;
   name?: string;
   price?: number;
   reference?: string;

@@ -155,7 +155,7 @@ export class TenantService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  findAll(params?: FindAll4$Params, context?: HttpContext): Observable<JrPageResponseJrTenantResponse> {
+  findAll4(params?: FindAll4$Params, context?: HttpContext): Observable<JrPageResponseJrTenantResponse> {
     const resp = this.findAll4$Response(params, context);
     return resp.pipe(
       map((r: StrictHttpResponse<JrPageResponseJrTenantResponse>): JrPageResponseJrTenantResponse => r.body)
