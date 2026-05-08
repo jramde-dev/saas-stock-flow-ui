@@ -11,7 +11,7 @@ import {JrCategoryRequest} from '../../models/jr-category-request';
 
 export interface Update3$Params {
   categoryId: string;
-      body: JrCategoryRequest
+  body: JrCategoryRequest;
 }
 
 export function update3(http: HttpClient, rootUrl: string, params: Update3$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {

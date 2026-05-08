@@ -1,5 +1,5 @@
-import { Routes } from '@angular/router';
-import { Home } from './features/public/home/home';
+import {Routes} from '@angular/router';
+import {Home} from './features/public/home/home';
 
 export const routes: Routes = [
   { path: '', component: Home, title: 'Home' },
@@ -36,10 +36,20 @@ export const routes: Routes = [
           .then(m => m.ManageCategory)
       },
       {
+        path: 'manage-category/:categoryId',
+        loadComponent: () => import('./features/tenant/category-list/manage-category/manage-category')
+          .then(m => m.ManageCategory)
+      },
+      {
         path: 'products',
         title: 'Manage Products',
         loadComponent: () => import('./features/tenant/product-list/product-list')
           .then(m => m.ProductList)
+      },
+      {
+        path: 'manage-product',
+        loadComponent: () => import('./features/tenant/product-list/manage-product/manage-product')
+          .then(m => m.ManageProduct)
       },
       {
         path: 'manage-product/:productId',
@@ -51,6 +61,11 @@ export const routes: Routes = [
         title: 'Manage Movements',
         loadComponent: () => import('./features/tenant/stock-mvmt/stock-mvmt')
           .then(m => m.StockMvmt)
+      },
+      {
+        path: 'manage-movement',
+        loadComponent: () => import('./features/tenant/stock-mvmt/manage-stock-mvmt/manage-stock-mvmt')
+          .then(m => m.ManageStockMvmt)
       },
       {
         path: 'manage-movement/:movementId',

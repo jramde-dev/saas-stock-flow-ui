@@ -52,14 +52,20 @@ export class CategoryList {
     });
   }
 
+  /**
+   * Rediriger vers le composant d'ajout de catégorie.
+   */
   protected onEditCategory(categoryId: string) {
-
+    void this.router.navigate(['app', 'manage-category', categoryId]);
   }
 
   protected onDeleteCategory() {
 
   }
 
+  /**
+   * Rediriger vers le composant d'ajout de catégorie.
+   */
   protected addCategory() {
     void this.router.navigate(['app', 'manage-category']);
   }
