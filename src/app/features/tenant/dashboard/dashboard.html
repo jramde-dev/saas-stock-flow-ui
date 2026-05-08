@@ -1,3 +1,11 @@
 <div>
-  <router-outlet />
+  <div class="flex gap-3 align-items-center">
+    <span class="text-3xl font-bold">Stock Flow</span>
+    <p-button (click)="onNavigateTo('cat')" label="Categories" />
+    <p-button (click)="onNavigateTo('pro')" label="Products" />
+    <p-button (click)="onNavigateTo('smv')" label="Stock Movements" />
+  </div>
+  <div class="py-2">
+    <router-outlet />
+  </div>
 </div>
