@@ -5,7 +5,7 @@
     <p-panel>
       <div>
         <div class="card">
-          <p-table [value]="tenants" [tableStyle]="{ 'min-width': '50rem' }">
+          <p-table [value]="tenants" showGridlines [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template #header>
               <tr>
                 <th>Company Name</th>
@@ -28,15 +28,19 @@
                 <td>
                   <div class="flex justify-content-center gap-2">
                     @if (tenant.status === 'PENDING') {
-                      <i (click)="approveTenant(tenant.tenantId)" class="cursor-pointer pi pi-check" style="color: green" pTooltip="Approve"
+                      <i (click)="approveTenant(tenant.tenantId)" class="cursor-pointer pi pi-check"
+                         style="color: green" pTooltip="Approve"
                          tooltipPosition="top"></i>
                     } @else if (tenant.status === 'ACTIVE') {
-                      <i (click)="deactivateTenant(tenant.tenantId)" class="cursor-pointer pi pi-circle-on" style="color: darkgreen" pTooltip="Deactivate"
+                      <i (click)="deactivateTenant(tenant.tenantId)" class="cursor-pointer pi pi-circle-on"
+                         style="color: darkgreen" pTooltip="Deactivate"
                          tooltipPosition="top"></i>
-                      <i (click)="suspendTenant(tenant.tenantId)" class="cursor-pointer pi pi-times" style="color: red" pTooltip="Suspend"
+                      <i (click)="suspendTenant(tenant.tenantId)" class="cursor-pointer pi pi-times" style="color: red"
+                         pTooltip="Suspend"
                          tooltipPosition="top"></i>
                     } @else if (tenant.status === 'INACTIVE' || tenant.status === 'SUSPENDED') {
-                      <i (click)="activateTenant(tenant.tenantId)" class="cursor-pointer pi pi-circle-off" style="color: dodgerblue" pTooltip="Activate"
+                      <i (click)="activateTenant(tenant.tenantId)" class="cursor-pointer pi pi-circle-off"
+                         style="color: dodgerblue" pTooltip="Activate"
                          tooltipPosition="top"></i>
                     }
                   </div>

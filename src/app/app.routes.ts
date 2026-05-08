@@ -31,7 +31,7 @@ export const routes: Routes = [
           .then(m => m.CategoryList)
       },
       {
-        path: 'manage-category/:categoryId',
+        path: 'manage-category',
         loadComponent: () => import('./features/tenant/category-list/manage-category/manage-category')
           .then(m => m.ManageCategory)
       },

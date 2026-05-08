@@ -1,11 +1,14 @@
 <div>
-  <div class="flex gap-3 align-items-center">
-    <span class="text-3xl font-bold">Stock Flow</span>
-    <p-button (click)="onNavigateTo('cat')" label="Categories" />
-    <p-button (click)="onNavigateTo('pro')" label="Products" />
-    <p-button (click)="onNavigateTo('smv')" label="Stock Movements" />
+  <div class="flex align-items-center justify-content-between mx-4">
+    <span class="text-3xl font-bold">StockFlow</span>
+    <div class="flex gap-2">
+      <p-button (click)="onNavigateTo('cat')" label="Categories" />
+      <p-button (click)="onNavigateTo('pro')" label="Products" />
+      <p-button (click)="onNavigateTo('smv')" label="Stock Movements" />
+    </div>
+    <div></div>
   </div>
-  <div class="py-2">
+  <div class="py-2 mx-4">
     <router-outlet />
   </div>
 </div>

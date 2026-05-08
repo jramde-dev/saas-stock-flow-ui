@@ -48,7 +48,7 @@ export class CategoryService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  findById3(params: FindById3$Params, context?: HttpContext): Observable<JrCategoryResponse> {
+  findById(params: FindById3$Params, context?: HttpContext): Observable<JrCategoryResponse> {
     const resp = this.findById3$Response(params, context);
     return resp.pipe(
       map((r: StrictHttpResponse<JrCategoryResponse>): JrCategoryResponse => r.body)
@@ -75,7 +75,7 @@ export class CategoryService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  update3(params: Update3$Params, context?: HttpContext): Observable<void> {
+  update(params: Update3$Params, context?: HttpContext): Observable<void> {
     const resp = this.update3$Response(params, context);
     return resp.pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
@@ -102,7 +102,7 @@ export class CategoryService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  delete3(params: Delete3$Params, context?: HttpContext): Observable<void> {
+  delete(params: Delete3$Params, context?: HttpContext): Observable<void> {
     const resp = this.delete3$Response(params, context);
     return resp.pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
@@ -129,7 +129,7 @@ export class CategoryService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  findAll3(params?: FindAll3$Params, context?: HttpContext): Observable<JrPageResponseJrCategoryResponse> {
+  findAll(params?: FindAll3$Params, context?: HttpContext): Observable<JrPageResponseJrCategoryResponse> {
     const resp = this.findAll3$Response(params, context);
     return resp.pipe(
       map((r: StrictHttpResponse<JrPageResponseJrCategoryResponse>): JrPageResponseJrCategoryResponse => r.body)
@@ -156,7 +156,7 @@ export class CategoryService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  create3(params: Create3$Params, context?: HttpContext): Observable<void> {
+  create(params: Create3$Params, context?: HttpContext): Observable<void> {
     const resp = this.create3$Response(params, context);
     return resp.pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
