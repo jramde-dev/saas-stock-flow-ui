@@ -12,6 +12,7 @@ import { JrProductResponse } from '../../../../api-services/models/jr-product-re
 import { SelectModule } from 'primeng/select';
 import { JrCategoryResponse } from '../../../../api-services/models/jr-category-response';
 import { CategoryService } from '../../../../api-services/services/category.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-manage-product',
@@ -46,11 +47,13 @@ export class ManageProduct implements OnInit {
   protected categories: JrCategoryResponse[] = [];
   protected selectedCategory: JrCategoryResponse | null = null;
 
-  ngOnInit(): void {
-    this.loadCategories();
+  async ngOnInit() {
     this.productId = this.activatedRoute.snapshot.params['productId'];
     if (this.productId) {
-      this.loadProductById(this.productId);
+      await this.loadProductById(this.productId);
+      this.loadCategories();
+    } else {
+      this.loadCategories();
     }
   }
 
@@ -58,6 +61,10 @@ export class ManageProduct implements OnInit {
     this.categoryService.findAll3({ page: 0, size: 10 }).subscribe({
       next: (response) => {
         this.categories = response.content || [];
+        if (this.productId) {
+          const productCategory = this.categories.find(category => category.id === this.productRequest.categoryId);
+          this.selectedCategory = productCategory!;
+        }
         this.changeDetectionRef.detectChanges();
       },
       error: () => {
@@ -70,20 +77,11 @@ export class ManageProduct implements OnInit {
     });
   }
 
-  private loadProductById(productId: string) {
-    this.productService.findById2({ productId: productId }).subscribe({
-      next: (response) => {
-        this.productRequest = this.toProductRequest(response);
-        this.changeDetectionRef.detectChanges();
-      },
-      error: () => {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Failed to load product.'
-        });
-      }
-    });
+  private async loadProductById(productId: string) {
+    const response: JrProductResponse = await lastValueFrom(
+      this.productService.findById2({ productId: productId }));
+    this.productRequest = this.toProductRequest(response);
+    this.changeDetectionRef.detectChanges();
   }
 
   /**
