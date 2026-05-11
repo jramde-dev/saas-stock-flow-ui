@@ -4,6 +4,7 @@
 export interface JrProductResponse {
   alertThreshold?: number;
   availableQuantity?: number;
+  categoryId?: string;
   categoryName?: string;
   description?: string;
   id?: string;

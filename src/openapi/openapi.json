@@ -1339,6 +1339,9 @@
           "price": {
             "type": "number"
           },
+          "categoryId": {
+            "type": "string"
+          },
           "categoryName": {
             "type": "string"
           },
