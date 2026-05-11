@@ -16,6 +16,8 @@ import { delete1 } from '../fn/movement/delete-1';
 import { Delete1$Params } from '../fn/movement/delete-1';
 import { findAll1 } from '../fn/movement/find-all-1';
 import { FindAll1$Params } from '../fn/movement/find-all-1';
+import { findAllByProductId } from '../fn/movement/find-all-by-product-id';
+import { FindAllByProductId$Params } from '../fn/movement/find-all-by-product-id';
 import { findById1 } from '../fn/movement/find-by-id-1';
 import { FindById1$Params } from '../fn/movement/find-by-id-1';
 import { JrPageResponseJrStockMvmtResponse } from '../models/jr-page-response-jr-stock-mvmt-response';
@@ -165,6 +167,33 @@ export class MovementService extends BaseService {
     const resp = this.create1$Response(params, context);
     return resp.pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
+    );
+  }
+
+  /** Path part for operation `findAllByProductId()` */
+  static readonly FindAllByProductIdPath = '/api/v1/stock-movements/product/{productId}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `findAllByProductId()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findAllByProductId$Response(params: FindAllByProductId$Params, context?: HttpContext): Observable<StrictHttpResponse<JrPageResponseJrStockMvmtResponse>> {
+    const obs = findAllByProductId(this.http, this.rootUrl, params, context);
+    return obs;
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `findAllByProductId$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findAllByProductId(params: FindAllByProductId$Params, context?: HttpContext): Observable<JrPageResponseJrStockMvmtResponse> {
+    const resp = this.findAllByProductId$Response(params, context);
+    return resp.pipe(
+      map((r: StrictHttpResponse<JrPageResponseJrStockMvmtResponse>): JrPageResponseJrStockMvmtResponse => r.body)
     );
   }
 

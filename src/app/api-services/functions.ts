@@ -25,6 +25,8 @@ export type { FindAll1$Params as FindAll1$Params } from './fn/movement/find-all-
 export { findAll1 as findAll1 } from './fn/movement/find-all-1';
 export type { Create1$Params as Create1$Params } from './fn/movement/create-1';
 export { create1 as create1 } from './fn/movement/create-1';
+export type { FindAllByProductId$Params as FindAllByProductId$Params } from './fn/movement/find-all-by-product-id';
+export { findAllByProductId as findAllByProductId } from './fn/movement/find-all-by-product-id';
 export type { FindById2$Params as FindById2$Params } from './fn/product/find-by-id-2';
 export { findById2 as findById2 } from './fn/product/find-by-id-2';
 export type { Update2$Params as Update2$Params } from './fn/product/update-2';

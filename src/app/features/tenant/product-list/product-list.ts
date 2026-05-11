@@ -33,10 +33,10 @@ export class ProductList implements OnInit {
   private productPage: JrPageResponseJrProductResponse = {};
 
   ngOnInit(): void {
-    this.loadCategories();
+    this.loadProducts();
   }
 
-  private loadCategories() {
+  private loadProducts() {
     this.productService.findAll2({ page: 0, size: 10 }).subscribe({
       next: (response) => {
         this.products = response.content || [];
@@ -52,14 +52,6 @@ export class ProductList implements OnInit {
     });
   }
 
-  protected onAddProduct() {
-    void this.router.navigate(['app', 'manage-product']);
-  }
-
-  protected onEditProduct(productId: string) {
-    void this.router.navigate(['app', 'manage-product', productId]);
-  }
-
   protected onDeleteProduct(productId: string) {
     this.productService.delete2({ productId: productId }).subscribe({
       next: () => {
@@ -68,7 +60,7 @@ export class ProductList implements OnInit {
           summary: 'Success',
           detail: 'Product deleted successfully.'
         });
-        this.loadCategories();
+        this.loadProducts();
       },
       error: () => {
         this.messageService.add({
@@ -78,5 +70,13 @@ export class ProductList implements OnInit {
         });
       }
     });
+  }
+
+  protected onAddProduct() {
+    void this.router.navigate(['app', 'manage-product']);
+  }
+
+  protected onEditProduct(productId: string) {
+    void this.router.navigate(['app', 'manage-product', productId]);
   }
 }
