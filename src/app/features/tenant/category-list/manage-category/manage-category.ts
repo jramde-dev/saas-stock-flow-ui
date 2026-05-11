@@ -1,13 +1,13 @@
-import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
-import {MessageService} from 'primeng/api';
-import {ActivatedRoute, Router} from '@angular/router';
-import {JrErrorResponse, JrValidationError} from '../../../../shared/models/jr-error-response';
-import {JrCategoryRequest} from '../../../../api-services/models/jr-category-request';
-import {FloatLabel} from 'primeng/floatlabel';
-import {InputText} from 'primeng/inputtext';
-import {FormsModule} from '@angular/forms';
-import {Button} from 'primeng/button';
-import {CategoryService} from '../../../../api-services/services/category.service';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { ActivatedRoute, Router } from '@angular/router';
+import { JrErrorResponse, JrValidationError } from '../../../../shared/models/jr-error-response';
+import { JrCategoryRequest } from '../../../../api-services/models/jr-category-request';
+import { FloatLabel } from 'primeng/floatlabel';
+import { InputText } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { Button } from 'primeng/button';
+import { CategoryService } from '../../../../api-services/services/category.service';
 
 @Component({
   selector: 'app-manage-category',
@@ -25,7 +25,7 @@ export class ManageCategory implements OnInit {
   private readonly messageService = inject(MessageService);
   private readonly categoryService = inject(CategoryService);
   private readonly activatedRoute = inject(ActivatedRoute);
-  private readonly cdr = inject(ChangeDetectorRef);
+  private readonly changeDetectionRef = inject(ChangeDetectorRef);
   private readonly router = inject(Router);
   private validationErrors: Array<JrValidationError> = [];
   protected categoryRequest: JrCategoryRequest = { name: '', description: '' };
@@ -47,7 +47,7 @@ export class ManageCategory implements OnInit {
           name: response.name || '',
           description: response.description || ''
         };
-        this.cdr.detectChanges();
+        this.changeDetectionRef.detectChanges();
       },
       error: () => {
         this.messageService.add({
@@ -108,6 +108,7 @@ export class ManageCategory implements OnInit {
           summary: 'Error',
           detail: 'Failed to create category.'
         });
+        this.changeDetectionRef.detectChanges();
       }
     });
   }

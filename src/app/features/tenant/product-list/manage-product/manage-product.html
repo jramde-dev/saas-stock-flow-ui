@@ -17,12 +17,12 @@
     </div>
     <div>
       <p-floatlabel variant="on">
-        <input pInputText id="description" name="description"
-               [(ngModel)]="productRequest.description" autocomplete="off" />
-        <label for="description">Description</label>
+        <input pInputText id="reference" name="reference"
+               [(ngModel)]="productRequest.reference" autocomplete="off" />
+        <label for="reference">Reference</label>
       </p-floatlabel>
-      @if (hasError('description')) {
-        <small class="text-red-500">{{ getErrorMsg('description') }}</small>
+      @if (hasError('reference')) {
+        <small class="text-red-500">{{ getErrorMsg('reference') }}</small>
       }
     </div>
     <div>
@@ -37,12 +37,12 @@
     </div>
     <div>
       <p-floatlabel variant="on">
-        <input pInputText id="reference" name="reference"
-               [(ngModel)]="productRequest.reference" autocomplete="off" />
-        <label for="reference">Reference</label>
+        <input pInputText id="description" name="description"
+               [(ngModel)]="productRequest.description" autocomplete="off" />
+        <label for="description">Description</label>
       </p-floatlabel>
-      @if (hasError('reference')) {
-        <small class="text-red-500">{{ getErrorMsg('reference') }}</small>
+      @if (hasError('description')) {
+        <small class="text-red-500">{{ getErrorMsg('description') }}</small>
       }
     </div>
     <div>

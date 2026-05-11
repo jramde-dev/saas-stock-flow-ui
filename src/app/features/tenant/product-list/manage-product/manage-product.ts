@@ -148,6 +148,7 @@ export class ManageProduct implements OnInit {
           summary: 'Error',
           detail: 'Failed to create product.'
         });
+        this.changeDetectionRef.detectChanges();
       }
     });
   }
