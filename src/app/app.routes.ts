@@ -1,5 +1,5 @@
-import {Routes} from '@angular/router';
-import {Home} from './features/public/home/home';
+import { Routes } from '@angular/router';
+import { Home } from './features/public/home/home';
 
 export const routes: Routes = [
   { path: '', component: Home, title: 'Home' },
@@ -71,6 +71,24 @@ export const routes: Routes = [
         path: 'manage-movement/:movementId',
         loadComponent: () => import('./features/tenant/stock-mvmt/manage-stock-mvmt/manage-stock-mvmt')
           .then(m => m.ManageStockMvmt)
+      },
+      {
+        path: 'users',
+        title: 'Users',
+        loadComponent: () => import('./features/tenant/user-list/user-list')
+          .then(m => m.UserList)
+      },
+      {
+        path: 'manage-user',
+        title: 'Manage Users',
+        loadComponent: () => import('./features/tenant/user-list/manage-user/manage-user')
+          .then(m => m.ManageUser)
+      },
+      {
+        path: 'manage-user/:userId',
+        title: 'Manage User',
+        loadComponent: () => import('./features/tenant/user-list/manage-user/manage-user')
+          .then(m => m.ManageUser)
       }
     ]
   }

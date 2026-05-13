@@ -21,6 +21,8 @@ export class Dashboard {
       void this.router.navigate(['app', 'products']);
     } else if (query === 'smv') {
       void this.router.navigate(['app', 'stocks-movements']);
+    } else if (query === 'users') {
+      void this.router.navigate(['app', 'users']);
     }
   }
 }
