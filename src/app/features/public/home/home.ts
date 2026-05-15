@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {ButtonModule} from 'primeng/button';
 
 @Component({
@@ -12,10 +12,10 @@ export class Home {
   private readonly router = inject(Router);
 
   protected onLogin() {
-    this.router.navigateByUrl("login")
+    void this.router.navigateByUrl("login")
   }
 
   protected onRegister() {
-    this.router.navigate(["register"])
+    void this.router.navigate(["register"])
   }
 }

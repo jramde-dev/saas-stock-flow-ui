@@ -1,5 +1,8 @@
-import { Routes } from '@angular/router';
-import { Home } from './features/public/home/home';
+import {Routes} from '@angular/router';
+import {Home} from './features/public/home/home';
+import {authGuard} from './core/guards/auth/auth-guard';
+import {platformAdminGuard} from './core/guards/platform-admin/platform-admin-guard';
+import {tenantCheckerGuard} from './core/guards/tenant/tenant-checker-guard';
 
 export const routes: Routes = [
   { path: '', component: Home, title: 'Home' },
@@ -16,12 +19,14 @@ export const routes: Routes = [
   {
     path: 'administration',
     title: 'Manage Tenants',
+    canActivate: [authGuard, platformAdminGuard],
     loadComponent: () => import('./features/admin/tenant-list/tenant-list').then(m => m.TenantList)
   },
 
   // Tenants features management
   {
     path: 'app',
+    canActivate: [authGuard, tenantCheckerGuard],
     loadComponent: () => import('./features/tenant/dashboard/dashboard').then(m => m.Dashboard),
     children: [
       {

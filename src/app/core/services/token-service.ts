@@ -1,7 +1,7 @@
-import { inject, Injectable } from '@angular/core';
-import { JrLoginResponse } from '../../api-services/models/jr-login-response';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { Router } from '@angular/router';
+import {inject, Injectable} from '@angular/core';
+import {JrLoginResponse} from '../../api-services/models/jr-login-response';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {Router} from '@angular/router';
 
 /**
  * Ce service est chargé de gérer toutes les informations JWT token.
@@ -72,6 +72,11 @@ export class TokenService {
 
    get isUser(): boolean {
       return this.userRole === 'ROLE_USER';
+   }
+
+   // Check if the current user is belong the current tenant
+   get isTenantUser(): boolean {
+     return this.isAdministrator || this.isCompanyAdmin || this.isSalesOperator || this.isUser;
    }
 
    get isTokenValid(): boolean {
