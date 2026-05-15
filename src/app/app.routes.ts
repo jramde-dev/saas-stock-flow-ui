@@ -20,7 +20,13 @@ export const routes: Routes = [
     path: 'administration',
     title: 'Manage Tenants',
     canActivate: [authGuard, platformAdminGuard],
-    loadComponent: () => import('./features/admin/tenant-list/tenant-list').then(m => m.TenantList)
+    loadComponent: () => import('./features/admin/admin-dashboard/admin-dashboard').then(m => m.AdminDashboard),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./features/admin/tenant-list/tenant-list').then(m => m.TenantList)
+      }
+    ]
   },
 
   // Tenants features management

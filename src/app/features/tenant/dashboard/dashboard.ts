@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { Button } from 'primeng/button';
+import {Component, inject} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
+import {Button} from 'primeng/button';
+import {TokenService} from '../../../core/services/token-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ import { Button } from 'primeng/button';
 })
 export class Dashboard {
   private readonly router = inject(Router);
+  private readonly tokenService = inject(TokenService);
 
   protected onNavigateTo(query: string) {
     if (query === 'cat') {
@@ -24,5 +26,9 @@ export class Dashboard {
     } else if (query === 'users') {
       void this.router.navigate(['app', 'users']);
     }
+  }
+
+  protected onLogout() {
+    void this.tokenService.logout();
   }
 }

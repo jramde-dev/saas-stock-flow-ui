@@ -67,7 +67,7 @@ export class Login {
       || this.tokenService.isAdministrator
       || this.tokenService.isSalesOperator
       || this.tokenService.isUser) {
-      this.router.navigate(['app']);
+      this.router.navigate(['app', 'products']);
     }
   }
 }
