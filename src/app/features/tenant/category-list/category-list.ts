@@ -1,5 +1,4 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { Panel } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { Toast } from 'primeng/toast';
 import { Tooltip } from 'primeng/tooltip';
@@ -13,7 +12,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-category-list',
   imports: [
-    Panel,
     TableModule,
     Toast,
     Tooltip,

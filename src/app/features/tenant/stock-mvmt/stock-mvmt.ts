@@ -16,17 +16,17 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { JrStockMvmtRequest } from '../../../api-services/models/jr-stock-mvmt-request';
 import { JrErrorResponse, JrValidationError } from '../../../shared/models/jr-error-response';
-import { FloatLabel } from 'primeng/floatlabel';
 import { FormsModule } from '@angular/forms';
 import { SelectModule } from 'primeng/select';
 import { Tooltip } from 'primeng/tooltip';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-stock-mvmt',
   imports: [
     Button, TableModule, Toast, DialogModule,
-    InputTextModule, FloatLabel, FormsModule, SelectModule, Tooltip
+    InputTextModule, FormsModule, SelectModule, Tooltip, DatePipe
   ],
   providers: [MessageService],
   templateUrl: './stock-mvmt.html',
@@ -43,7 +43,7 @@ export class StockMvmt implements OnInit {
   protected stockMvmts: JrStockMvmtResponse[] = [];
   private productPage: JrPageResponseJrProductResponse = {};
   private stockMvtPage: JrPageResponseJrStockMvmtResponse = {};
-  protected selectedProduct: JrProductResponse | null = {};
+  protected selectedProduct: JrProductResponse | null = {}; // or null
   protected visible: boolean = false;
   protected stockMvtRequest: JrStockMvmtRequest = {
     typeMvmt: 'IN',

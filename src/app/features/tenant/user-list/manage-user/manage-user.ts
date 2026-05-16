@@ -36,7 +36,7 @@ export class ManageUser implements OnInit {
     email: '', firstName: '', lastName: '', password: '',
     role: 'ROLE_USER', username: ''
   };
-  private userId!: string;
+  protected userId!: string;
   protected roles: string[] = [
     'ROLE_PLATFORM_ADMIN',
     'ROLE_COMPANY_ADMIN',

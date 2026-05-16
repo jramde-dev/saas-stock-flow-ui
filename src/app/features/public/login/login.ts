@@ -9,11 +9,11 @@ import {JrErrorResponse, JrValidationError} from '../../../shared/models/jr-erro
 import {MessageService} from 'primeng/api';
 import {Toast} from 'primeng/toast';
 import {TokenService} from '../../../core/services/token-service';
-import {Router} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FloatLabelModule, InputTextModule, ButtonModule, FormsModule, Toast],
+  imports: [FloatLabelModule, InputTextModule, ButtonModule, FormsModule, Toast, RouterLink],
   providers: [MessageService],
   templateUrl: './login.html',
   styleUrl: './login.scss'

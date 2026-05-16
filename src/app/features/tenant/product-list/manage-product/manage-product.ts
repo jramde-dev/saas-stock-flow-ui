@@ -43,7 +43,7 @@ export class ManageProduct implements OnInit {
     price: 0,
     alertThreshold: undefined
   };
-  private productId!: string;
+  protected productId!: string;
   protected categories: JrCategoryResponse[] = [];
   protected selectedCategory: JrCategoryResponse | null = null;
 

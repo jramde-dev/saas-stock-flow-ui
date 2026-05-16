@@ -1,7 +1,7 @@
-import {Component, inject} from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
-import {Button} from 'primeng/button';
-import {TokenService} from '../../../core/services/token-service';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { Button } from 'primeng/button';
+import { TokenService } from '../../../core/services/token-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,6 +25,8 @@ export class Dashboard {
       void this.router.navigate(['app', 'stocks-movements']);
     } else if (query === 'users') {
       void this.router.navigate(['app', 'users']);
+    } else if (query === 'dash') { // Dashboard
+      void this.router.navigate(['app']);
     }
   }
 

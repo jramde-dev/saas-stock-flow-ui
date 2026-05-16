@@ -1,4 +1,62 @@
 <p-toast position="top-right" />
+
+<div class="page-header">
+  <div class="page-header-left">
+    <div class="page-icon icon-purple"><i class="pi pi-tag"></i></div>
+    <div>
+      <h2>Categories</h2>
+      <p>Manage your product categories</p>
+    </div>
+  </div>
+  <p-button label="Add Category" icon="pi pi-plus" (onClick)="addCategory()" />
+</div>
+
+@if (categories && categories.length > 0) {
+  <div class="data-card">
+    <p-table [value]="categories" [tableStyle]="{ 'min-width': '30rem' }">
+      <ng-template #header>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th style="width: 90px; text-align: center">Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-category>
+        <tr>
+          <td>
+            <div class="name-cell">
+              <div class="item-avatar avatar-purple">{{ category.name?.charAt(0)?.toUpperCase() }}</div>
+              <span class="item-name">{{ category.name }}</span>
+            </div>
+          </td>
+          <td class="muted-cell">{{ category.description || '—' }}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn btn-edit" (click)="onEditCategory(category.id)"
+                      pTooltip="Edit" tooltipPosition="top">
+                <i class="pi pi-pencil"></i>
+              </button>
+              <button class="action-btn btn-delete" (click)="onDeleteCategory(category.id)"
+                      pTooltip="Delete" tooltipPosition="top">
+                <i class="pi pi-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+} @else {
+  <div class="empty-state">
+    <div class="empty-icon"><i class="pi pi-tag"></i></div>
+    <h3>No categories yet</h3>
+    <p>Create your first category to organise your products.</p>
+    <p-button label="Add Category" icon="pi pi-plus" (onClick)="addCategory()" />
+  </div>
+}
+
+<!--
+<p-toast position="top-right" />
 @if (categories.length > 0) {
   <div class="mb-4 p-4 pt-0">
     <div class="flex align-items-center justify-content-between mt-4">
@@ -45,3 +103,4 @@
     <p-button label="Create your first category" icon="pi pi-plus" (onClick)="addCategory()" />
   </div>
 }
+-->

@@ -1,0 +1,199 @@
+<!-- ─── Main Area ─────────────────────────────────────────────────────── -->
+<div class="tenant-main">
+
+  <!-- Topbar -->
+  <header class="tenant-topbar">
+    <div class="topbar-left">
+      <h1 class="topbar-title">Dashboard</h1>
+      <p class="topbar-subtitle">Welcome back — here's your inventory overview</p>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-date">
+        <i class="pi pi-calendar"></i>
+        <span>April 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overview Stats (always visible) -->
+  <div class="overview-stats">
+    <div class="stat-card" (click)="navigateTo('p')">
+      <div class="stat-icon icon-blue"><i class="pi pi-box"></i></div>
+      <div class="stat-body">
+        <span class="stat-value">156</span>
+        <span class="stat-label">Total Products</span>
+      </div>
+      <div class="stat-delta delta-up">
+        <i class="pi pi-arrow-up"></i> +8
+      </div>
+    </div>
+    <div class="stat-card" (click)="navigateTo('c')">
+      <div class="stat-icon icon-purple"><i class="pi pi-tag"></i></div>
+      <div class="stat-body">
+        <span class="stat-value">12</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat-delta delta-up">
+        <i class="pi pi-arrow-up"></i> +2
+      </div>
+    </div>
+    <div class="stat-card" (click)="navigateTo('s')">
+      <div class="stat-icon icon-green"><i class="pi pi-list"></i></div>
+      <div class="stat-body">
+        <span class="stat-value">342</span>
+        <span class="stat-label">Stock Movements</span>
+      </div>
+      <div class="stat-delta delta-up">
+        <i class="pi pi-arrow-up"></i> +24
+      </div>
+    </div>
+    <div class="stat-card alert-card">
+      <div class="stat-icon icon-red"><i class="pi pi-exclamation-triangle"></i></div>
+      <div class="stat-body">
+        <span class="stat-value">5</span>
+        <span class="stat-label">Low Stock Alerts</span>
+      </div>
+      <div class="stat-delta delta-down">
+        <i class="pi pi-arrow-up"></i> +1
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts (home overview — shown when no child route displaces focus) -->
+  <div class="charts-section">
+
+    <!-- Stock trend chart -->
+    <div class="chart-card">
+      <div class="chart-header">
+        <div>
+          <h3>Stock Movement Trend</h3>
+          <p>Inbound vs outbound — last 6 months</p>
+        </div>
+        <div class="legend">
+          <span class="legend-dot dot-in"></span><span>IN</span>
+          <span class="legend-dot dot-out"></span><span>OUT</span>
+        </div>
+      </div>
+      <div class="grouped-bars">
+        <div class="bar-column">
+          <div class="bar-pair">
+            <div class="bar bar-in" style="height: 55%"></div>
+            <div class="bar bar-out" style="height: 35%"></div>
+          </div>
+          <span class="bar-label">Nov</span>
+        </div>
+        <div class="bar-column">
+          <div class="bar-pair">
+            <div class="bar bar-in" style="height: 72%"></div>
+            <div class="bar bar-out" style="height: 48%"></div>
+          </div>
+          <span class="bar-label">Dec</span>
+        </div>
+        <div class="bar-column">
+          <div class="bar-pair">
+            <div class="bar bar-in" style="height: 40%"></div>
+            <div class="bar bar-out" style="height: 60%"></div>
+          </div>
+          <span class="bar-label">Jan</span>
+        </div>
+        <div class="bar-column">
+          <div class="bar-pair">
+            <div class="bar bar-in" style="height: 85%"></div>
+            <div class="bar bar-out" style="height: 52%"></div>
+          </div>
+          <span class="bar-label">Feb</span>
+        </div>
+        <div class="bar-column">
+          <div class="bar-pair">
+            <div class="bar bar-in" style="height: 63%"></div>
+            <div class="bar bar-out" style="height: 41%"></div>
+          </div>
+          <span class="bar-label">Mar</span>
+        </div>
+        <div class="bar-column">
+          <div class="bar-pair">
+            <div class="bar bar-in" style="height: 90%"></div>
+            <div class="bar bar-out" style="height: 58%"></div>
+          </div>
+          <span class="bar-label">Apr</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category distribution + quick actions -->
+    <div class="side-cards">
+
+      <!-- Category breakdown -->
+      <div class="chart-card breakdown-card">
+        <div class="chart-header">
+          <div>
+            <h3>Top Categories</h3>
+            <p>By product count</p>
+          </div>
+        </div>
+        <div class="category-bars">
+          <div class="cat-row">
+            <span class="cat-name">Electronics</span>
+            <div class="cat-bar-wrap">
+              <div class="cat-bar" style="width: 80%"></div>
+            </div>
+            <span class="cat-count">38</span>
+          </div>
+          <div class="cat-row">
+            <span class="cat-name">Furniture</span>
+            <div class="cat-bar-wrap">
+              <div class="cat-bar" style="width: 55%"></div>
+            </div>
+            <span class="cat-count">26</span>
+          </div>
+          <div class="cat-row">
+            <span class="cat-name">Clothing</span>
+            <div class="cat-bar-wrap">
+              <div class="cat-bar" style="width: 42%"></div>
+            </div>
+            <span class="cat-count">20</span>
+          </div>
+          <div class="cat-row">
+            <span class="cat-name">Tools</span>
+            <div class="cat-bar-wrap">
+              <div class="cat-bar" style="width: 30%"></div>
+            </div>
+            <span class="cat-count">14</span>
+          </div>
+          <div class="cat-row">
+            <span class="cat-name">Other</span>
+            <div class="cat-bar-wrap">
+              <div class="cat-bar cat-bar-gray" style="width: 22%"></div>
+            </div>
+            <span class="cat-count">10</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="quick-actions-card">
+        <h3>Quick Actions</h3>
+        <div class="qa-grid">
+          <div class="qa-item" (click)="navigateTo('p')">
+            <div class="qa-icon qa-blue"><i class="pi pi-plus"></i></div>
+            <span>Add Product</span>
+          </div>
+          <div class="qa-item" (click)="navigateTo('c')">
+            <div class="qa-icon qa-purple"><i class="pi pi-tag"></i></div>
+            <span>Manage Categories</span>
+          </div>
+          <div class="qa-item" (click)="navigateTo('s')">
+            <div class="qa-icon qa-green"><i class="pi pi-list"></i></div>
+            <span>Record Movement</span>
+          </div>
+          <div class="qa-item" (click)="navigateTo('u')">
+            <div class="qa-icon qa-orange"><i class="pi pi-user-plus"></i></div>
+            <span>Add User</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

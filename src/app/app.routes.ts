@@ -36,6 +36,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/tenant/dashboard/dashboard').then(m => m.Dashboard),
     children: [
       {
+        path: '',
+        loadComponent: () => import('./features/tenant/statistics/statistics').then((m) => m.Statistics),
+      },
+      {
         path: 'categories',
         title: 'Manage Categories',
         loadComponent: () => import('./features/tenant/category-list/category-list')

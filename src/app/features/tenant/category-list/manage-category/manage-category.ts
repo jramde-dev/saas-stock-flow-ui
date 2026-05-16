@@ -29,7 +29,7 @@ export class ManageCategory implements OnInit {
   private readonly router = inject(Router);
   private validationErrors: Array<JrValidationError> = [];
   protected categoryRequest: JrCategoryRequest = { name: '', description: '' };
-  private categoryId!: string;
+  protected categoryId!: string;
 
 
   ngOnInit(): void {

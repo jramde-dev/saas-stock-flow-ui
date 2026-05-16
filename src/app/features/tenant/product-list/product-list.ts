@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Button } from 'primeng/button';
-import { Panel } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { Toast } from 'primeng/toast';
 import { Tooltip } from 'primeng/tooltip';
@@ -9,15 +8,16 @@ import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { JrProductResponse } from '../../../api-services/models/jr-product-response';
 import { JrPageResponseJrProductResponse } from '../../../api-services/models/jr-page-response-jr-product-response';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
   imports: [
     Button,
-    Panel,
     TableModule,
     Toast,
-    Tooltip
+    Tooltip,
+    CurrencyPipe
   ],
   providers: [MessageService],
   templateUrl: './product-list.html',
