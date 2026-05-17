@@ -78,16 +78,6 @@ export const routes: Routes = [
           .then(m => m.StockMvmt)
       },
       {
-        path: 'manage-movement',
-        loadComponent: () => import('./features/tenant/stock-mvmt/manage-stock-mvmt/manage-stock-mvmt')
-          .then(m => m.ManageStockMvmt)
-      },
-      {
-        path: 'manage-movement/:movementId',
-        loadComponent: () => import('./features/tenant/stock-mvmt/manage-stock-mvmt/manage-stock-mvmt')
-          .then(m => m.ManageStockMvmt)
-      },
-      {
         path: 'users',
         title: 'Users',
         loadComponent: () => import('./features/tenant/user-list/user-list')
